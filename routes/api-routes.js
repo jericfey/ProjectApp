@@ -5,3 +5,5 @@ router.get("/", (req, res) => {
   console.log("Request called...");
   resizeBy.sendStatus(200);
 });
+
+module.exports = router;
