@@ -20,10 +20,15 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+<<<<<<< HEAD
 // Import routes and give the server access to them.
 const routes = require("./routes/api-routes.js");
+=======
+// Const for API route:
+const apiRoutes = require("./routes/api-routes");
+>>>>>>> main
 
-app.use(routes);
+app.use("api/", apiRoutes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, () =>
