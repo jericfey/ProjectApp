@@ -1,9 +1,14 @@
-var express = require("express");
-var router = express.Router();
+// Grabbing our models
 
-router.get("/", (req, res) => {
-  console.log("Request called...");
-  resizeBy.sendStatus(200);
-});
+const db = require("../models");
 
-module.exports = router;
+module.exports = (app) => {
+
+  //GET route for select
+
+  //POST route
+
+  //DELETE route
+
+  //PUT route for updates
+};

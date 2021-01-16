@@ -20,17 +20,10 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-<<<<<<< HEAD
 // Import routes and give the server access to them.
-const routes = require("./routes/api-routes.js");
-=======
-// Const for API route:
-const apiRoutes = require("./routes/api-routes");
->>>>>>> main
+require("./routes/api-routes.js")(app);
 
-app.use("api/", apiRoutes);
-
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, () =>
-  console.log(`Server listening on: http://localhost:${PORT}`)
-);
+// Syncing our sequelize models and then starting our Express app
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
+});
