@@ -1,9 +1,18 @@
-var express = require("express");
-var router = express.Router();
+// Grabbing our models
 
-router.get("/", (req, res) => {
-  console.log("Request called...");
-  resizeBy.sendStatus(200);
-});
+const db = require("../models");
 
-module.exports = router;
+module.exports = (app) => {
+  //GET route to get all projects
+  app.get("/api/projects", (req, res) => {
+    db.Project.findAll({
+      include: [db.Task],
+    }).then((dbProject) => res.json(dbProject));
+  });
+
+  //POST route
+
+  //DELETE route
+
+  //PUT route for updates
+};
