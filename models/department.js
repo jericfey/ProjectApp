@@ -19,11 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
   };
-  Department.associate = (models) => {
-    Department.hasMany(models.People, {
-      onDelete: "cascade",
-    });
-  };
 
   return Department;
 };

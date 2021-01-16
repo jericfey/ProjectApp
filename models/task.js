@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   Task.associate = (models) => {
-    Task.hasMany(models.Projects, {
+    Task.hasMany(models.Project, {
       onDelete: "cascade",
     });
   };
