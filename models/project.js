@@ -16,11 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "cascade",
     });
   };
-  Project.associate = (models) => {
-    Project.hasMany(models.People, {
-      //
-      onDelete: "cascade",
-    });
-  };
+
   return Project;
 };
