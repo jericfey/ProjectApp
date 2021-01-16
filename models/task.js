@@ -7,19 +7,31 @@ module.exports = (sequelize, DataTypes) => {
     revenue: { type: DataTypes.DECIMAL(15, 2) },
     billable: { type: DataTypes.BOOLEAN },
   });
+  //! sets state as foreign key
   Task.associate = (models) => {
-    Task.hasMany(models.State, {
-      onDelete: "cascade",
+    models.Task.belongsTo(models.State, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
     });
   };
+  //! sets people as foreign key
   Task.associate = (models) => {
-    Task.hasMany(models.People, {
-      onDelete: "cascade",
+    models.Task.belongsTo(models.People, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
     });
   };
+  //! sets project as foreign key
   Task.associate = (models) => {
-    Task.hasMany(models.Project, {
-      onDelete: "cascade",
+    models.Task.belongsTo(models.Project, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
     });
   };
   return Task;

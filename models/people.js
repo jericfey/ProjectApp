@@ -5,36 +5,20 @@ module.exports = (sequelize, DataTypes) => {
     last_name: { type: DataTypes.STRING },
     full_name: { type: DataTypes.STRING },
   });
-
-  People.associate = function (models) {
-    People.belongsTo(models.Task, {
+  //! creates foreign key as RoleID
+  People.associate = (models) => {
+    People.belongsTo(models.Role, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,
       },
     });
   };
+  //! sets people as foreign key in Task
   People.associate = (models) => {
-    People.hasMany(models.Role, {
+    People.hasMany(models.Task, {
       onDelete: "cascade",
     });
   };
   return People;
 };
-
-//!  relation for setting foreign key in another table
-
-//   Task.associate = function (models) {
-//     models.Task.belongsTo(models.User, {
-//       onDelete: "CASCADE",
-//       foreignKey: {
-//         allowNull: false,
-//       },
-//     });
-
-//! relation for accepting foreign key from another table
-// People.associate = (models) => {
-//   People.hasMany(models.Post, {
-//     onDelete: "cascade",
-//   });
-// };
