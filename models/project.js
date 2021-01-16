@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: { type: DataTypes.STRING },
   });
   Project.associate = function (models) {
-    models.Project.belongsTo(models.Task, {
+    Project.belongsTo(models.Task, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,
@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Project.associate = (models) => {
     Project.hasMany(models.People, {
+      //
       onDelete: "cascade",
     });
   };

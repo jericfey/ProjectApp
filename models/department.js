@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: { type: DataTypes.STRING },
   });
   Department.associate = function (models) {
-    models.Department.belongsTo(models.Role, {
+    Department.belongsTo(models.Role, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   Department.associate = function (models) {
-    models.Department.belongsTo(models.Project, {
+    Department.belongsTo(models.Project, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,

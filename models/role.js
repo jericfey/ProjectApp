@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     bill_rate: { type: DataTypes.DECIMAL(15, 2) },
   });
   Role.associate = function (models) {
-    models.Role.belongsTo(models.People, {
+    Role.belongsTo(models.People, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,

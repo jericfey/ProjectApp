@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     full_name: { type: DataTypes.STRING },
   });
   People.associate = function (models) {
-    models.People.belongsTo(models.Department, {
+    People.belongsTo(models.Department, {
       onDelete: "CASCADE",
       foreignKey: {
         as: "manager_id",
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   People.associate = function (models) {
-    models.People.belongsTo(models.Project, {
+    People.belongsTo(models.Project, {
       onDelete: "CASCADE",
       foreignKey: {
         as: "project_manager_id",
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   People.associate = function (models) {
-    models.People.belongsTo(models.Task, {
+    People.belongsTo(models.Task, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,
