@@ -3,8 +3,12 @@
 const db = require("../models");
 
 module.exports = (app) => {
-
-  //GET route for select
+  //GET route to get all projects
+  app.get("/api/projects", (req, res) => {
+    db.Project.findAll({
+      include: [db.Task],
+    }).then((dbProject) => res.json(dbProject));
+  });
 
   //POST route
 
