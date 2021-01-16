@@ -3,19 +3,23 @@ module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define("Project", {
     name: { type: DataTypes.STRING },
   });
-  Project.associate = function (models) {
-    Project.belongsTo(models.Task, {
+  //! inclused foreign key as DepartmentID for project
+  Project.associate = (models) => {
+    Project.belongsTo(models.Department, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false,
       },
     });
   };
+  //! sets project as foreignK in Task
   Project.associate = (models) => {
-    Project.hasMany(models.Department, {
+    Project.hasMany(models.Task, {
       onDelete: "cascade",
     });
   };
 
   return Project;
 };
+
+

@@ -3,13 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   const State = sequelize.define("State", {
     name: { type: DataTypes.STRING },
   });
-  State.associate = function (models) {
-    State.belongsTo(models.Task, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false,
-      },
+  //! sets state as foreign key on task
+  State.associate = (models) => {
+    State.hasMany(models.Task, {
+      onDelete: "cascade",
     });
   };
   return State;
 };
+

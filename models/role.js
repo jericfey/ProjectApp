@@ -5,18 +5,20 @@ module.exports = (sequelize, DataTypes) => {
     cost_rate: { type: DataTypes.DECIMAL(15, 2) },
     bill_rate: { type: DataTypes.DECIMAL(15, 2) },
   });
-  Role.associate = function (models) {
-    Role.belongsTo(models.People, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
+  //! sets role as FK on people
   Role.associate = (models) => {
-    Role.hasMany(models.Department, {
+    Role.hasMany(models.People, {
       onDelete: "cascade",
     });
   };
+  //! creates FK on roles for dept
+  // Role.associate = (models) => {
+  //   Role.belongsTo(models.Department, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       allowNull: false,
+  //     },
+  //   });
+  // };
   return Role;
 };
