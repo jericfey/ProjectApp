@@ -1,7 +1,56 @@
-"use strict";
-
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert("Roles", [
+      {
+        name: "Jedi",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Princess",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Captain",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Sith Lord",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Co-Pilot",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Commander",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Crime Lord",
+        cost_rate: 100,
+        bill_rate: 500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
     return queryInterface.bulkInsert("People", [
       {
         first_name: "Luke",
@@ -61,9 +110,7 @@ module.exports = {
       },
     ]);
   },
-  down: (queryInterface, Sequelize) => {
+  down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete("People", null, {});
   },
 };
-
-
