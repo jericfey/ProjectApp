@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     People.belongsTo(models.Role, {
       onDelete: "CASCADE",
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
       },
     });
   };
