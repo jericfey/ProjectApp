@@ -1,7 +1,5 @@
-"use strict";
-
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up:  (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Projects", [
       {
         name: "Implement the Tarkin Doctrine",
@@ -23,7 +21,7 @@ module.exports = {
       },
     ]);
   },
-  down: (queryInterface, Sequelize) => {
+  down:  (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete("Projects", null, {});
   },
 };

@@ -1,14 +1,34 @@
-"use strict";
-
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert("States", [
+      {
+        name: "Backlog",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "In Progress",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Blocked",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Completed",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
     return queryInterface.bulkInsert("Tasks", [
       {
         name: "Create Propoganda",
         hours: 5,
         cost: 500,
         revenue: 2500,
-        billable: FALSE,
+        billable: false,
         PersonId: 6,
         ProjectId: 1,
         StateId: 2,
@@ -20,7 +40,7 @@ module.exports = {
         hours: 2,
         cost: 200,
         revenue: 1000,
-        billable: TRUE,
+        billable: true,
         PersonId: 3,
         ProjectId: 2,
         StateId: 3,
@@ -32,7 +52,7 @@ module.exports = {
         hours: 10,
         cost: 1000,
         revenue: 5000,
-        billable: TRUE,
+        billable: true,
         PersonId: 7,
         ProjectId: 3,
         StateId: 4,
