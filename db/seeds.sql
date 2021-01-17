@@ -1,5 +1,5 @@
---Static Tables that don't get modified by the app
---Department
+-- Static Tables that don't get modified by the app
+-- Department
 INSERT INTO
   departments (name)
 VALUES
@@ -95,20 +95,20 @@ VALUES
   ('Jabba', 'Tiure', 'Jabba the Hut', 6);
 --Projects TABLE
 INSERT INTO
-  projects (name, task_id)
+  projects (name, department_id)
 VALUES
   ('Implement the Tarkin Doctrine', 1);
 INSERT INTO
-  projects (name, task_id)
+  projects (name, department_id)
 VALUES
-  ('Restore the Galactic Republic' 2);
+  ('Restore the Galactic Republic', 2);
 INSERT INTO
-  projects (name, task_id)
+  projects (name, department_id)
 VALUES
   ('Improve Fiscal Outlook', 3);
 --Tasks TABLE
 INSERT INTO
-  tasks (name, hours, cost, revenue, billable)
+  tasks (name, hours, cost, revenue, billable, personId, projectId, stateID)
 VALUES
   ('Create propaganda', 30, 500, 50000, true);
 INSERT INTO
