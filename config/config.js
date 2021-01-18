@@ -1,8 +1,8 @@
 require("dotenv").config();
 module.exports = {
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PW,
+    username: "root",
+    password: "P@ssword!",
     database: "kanban",
     host: "127.0.0.1",
     port: 3306,
@@ -10,7 +10,7 @@ module.exports = {
   },
   test: {
     username: "root",
-    password: null,
+    password: "null",
     database: "database_test",
     host: "127.0.0.1",
     port: 3306,
