@@ -1,0 +1,70 @@
+    <div class="row valign-wrapper">
+
+        <div class="col s3" style="margin-top: 60px; margin-left: 20px; margin-right: 20px"> 
+            <span class="teal-text text-teal lighten-2">New Task</span>
+
+                <div class="input-field">
+                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Description</label>
+                </div>
+
+                <form action="#">
+                    <p>
+                      <label>
+                        <input name="group1" type="radio" checked />
+                        <span>Backlog</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input name="group1" type="radio" />
+                        <span>In-Progress</span>
+                      </label>
+                    </p>
+                    <p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>Blocked</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>Completed</span>
+                        </label>
+                      </p>
+                  </form>
+                  <a class="waves-effect waves-light btn-small" style="margin-top: 10px">Submit</a>
+        </div>
+  
+        <div class="col s9" style="margin-right: 20px"> 
+                <
+                <div class="card-panel blue darken-2 col s3">
+                    <span class="white-text">
+                        <p><strong>Backlog</strong></p>
+                        <p>{{backlog description}}</p>
+                    </span>
+                </div>
+
+                <div class="card-panel amber lighten-1 col s3">
+                    <span class="white-text">
+                        <p><strong>In-Progress</strong></p>
+                        <p>{{in-progress description}}</p>
+                    </span>
+                </div>
+
+                <div class="card-panel red darken-3 col s3">
+                    <span class="white-text">
+                        <p><strong>Blocked</strong></p>
+                        <p>{{blocked description}}</p>
+                    </span>
+                </div>
+
+                <div class="card-panel green darken-2 col s3">
+                    <span class="white-text">
+                        <p><strong>Completed</strong></p>
+                        <p>{{completed description}}</p>
+                    </span>
+                </div>
+        </div>
+    </div>
