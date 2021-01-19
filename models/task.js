@@ -16,15 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
   };
-  //! sets people as foreign key
-  Task.associate = (models) => {
-    models.Task.belongsTo(models.People, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
   //! sets project as foreign key
   Task.associate = (models) => {
     models.Task.belongsTo(models.Project, {
@@ -34,5 +25,15 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
   };
+  //! sets people as foreign key
+  Task.associate = (models) => {
+    models.Task.belongsTo(models.People, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
+
   return Task;
 };
