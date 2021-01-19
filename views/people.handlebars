@@ -5,24 +5,19 @@
 
                 <div class="input-field">
                   <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Name</label>
+                  <label for="textarea1">First Name</label>
                 </div>
 
                 <div class="input-field">
                     <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Title</label>
+                    <label for="textarea1">Last Name</label>
                 </div>
 
                 <div class="input-field">
                     <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Company</label>
+                    <label for="textarea1">Role</label>
                 </div>
-
-                <div class="input-field">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Email</label>
-                </div>
-  
+                <button id="new-user-button" class="btn waves-effect waves-light" type="button" name="action">Submit</button>
   
         </div>
   
@@ -33,8 +28,7 @@
                       <tr>
                           <th>Name</th>
                           <th>Title</th>
-                          <th>Company</th>
-                          <th>Email</th>
+                          <th>Role</th>
                       </tr>
                     </thead>
             
@@ -43,9 +37,7 @@
                       <tr>
                         <td>{{firstname}}</td>
                         <td>{{lastname}}</td>
-                        <td>{{title}}</td>
-                        <td>{{company}}</td>
-                        <td>{{email}}</td>
+                        <td>{{role}}</td>
                       </tr>
                       {{/each}}
                     </tbody>

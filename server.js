@@ -26,7 +26,12 @@ const routes = require("./routes/api-routes.js");
 
 app.use(routes);
 
+// Import html routes and give the server access to them.
+const htmlroutes = require("./routes/html-routes.js");
+
+app.use(htmlroutes);
+
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
