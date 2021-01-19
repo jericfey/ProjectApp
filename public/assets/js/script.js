@@ -14,5 +14,4 @@ var newUser = $('#new-user-button')
 newUser.addEventListener('click', (e) => {
     if (e) {
       console.log('DOM loaded!');
-    }
-  
+    }});
