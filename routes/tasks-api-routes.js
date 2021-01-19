@@ -6,31 +6,28 @@ module.exports = (app) => {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
     db.Task.findAll({
-      include: [{ all: true, nested: true }],
+      include: [db.Project, db.State, db.People],
     }).then((dbTasks) => res.json(dbTasks));
   });
 
-  //   app.get("/api/tasks/:id", (req, res) => {
-  //     // Here we add an "include" property to our options in our findOne query
-  //     // We set the value to an array of the models we want to include in a left outer join
-  //     // In this case, just db.Post
-  //     db.Author.findOne({
-  //       where: {
-  //         id: req.params.id,
-  //       },
-  //       include: [db.Post],
-  //     }).then((dbAuthor) => res.json(dbAuthor));
-  //   });
+  app.get("/api/tasks/:id", (req, res) => {
+    db.Task.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{ all: true }],
+    }).then((dbTasks) => res.json(dbTasks));
+  });
 
-  //   app.post("/api/tasks", (req, res) => {
-  //     db.Author.create(req.body).then((dbAuthor) => res.json(dbAuthor));
-  //   });
+  app.post("/api/tasks", (req, res) => {
+    db.Task.create(req.body).then((dbTasks) => res.json(dbTasks));
+  });
 
-  //   app.delete("/api/tasks/:id", (req, res) => {
-  //     db.Author.destroy({
-  //       where: {
-  //         id: req.params.id,
-  //       },
-  //     }).then((dbAuthor) => res.json(dbAuthor));
-  //   });
+  app.delete("/api/tasks/:id", (req, res) => {
+    db.Task.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbTasks) => res.json(dbTasks));
+  });
 };
