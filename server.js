@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const taskRouter = require("./routes/tasks-api-routes");
+const projectRouter = require("./routes/projects-api-routes");
 
 // Sets up the Express App
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json());
 
 // Invoke Routes
 taskRouter(app);
+projectRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync().then(() => {
