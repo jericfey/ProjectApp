@@ -1,6 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
+const taskRouter = require("./routes/tasks-api-routes");
+const projectRouter = require("./routes/projects-api-routes");
+const peopleRouter = require("./routes/people-api-routes");
 
 // Sets up the Express App
 const app = express();
@@ -11,20 +14,24 @@ const db = require("./models");
 
 const exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "home" }));
 app.set("view engine", "handlebars");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Static directory
 app.use(express.static("public"));
 
 // Import routes and give the server access to them.
-const routes = require("./routes/api-routes.js");
+// const routes = require("./routes/api-routes.js");
 
-app.use(routes);
+// app.use(routes);
+
+// Invoke Routes
+taskRouter(app);
+projectRouter(app);
+peopleRouter(app);
 
 // Import html routes and give the server access to them.
 const htmlroutes = require("./routes/html-routes.js");
