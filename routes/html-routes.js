@@ -6,7 +6,7 @@ module.exports = function (app) {
 //Routing
 
 app.get('/', function (req, res) {
-    res.render("home")
+    res.render("people")
   });
 
 app.get('/projects', function (req, res) {
