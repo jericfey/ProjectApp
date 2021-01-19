@@ -7,6 +7,7 @@ module.exports = (app) => {
       include: [{ all: true, nested: true }],
     }).then((dbProjects) => res.json(dbProjects));
   });
+
   //Pull by project id
   app.get("/api/projects/:id", (req, res) => {
     db.Project.findOne({
@@ -16,6 +17,7 @@ module.exports = (app) => {
       include: [db.Post],
     }).then((dbProjects) => res.json(dbProjects));
   });
+  
   //create new project
   app.post("/api/projects", (req, res) => {
     db.Project.create(req.body).then((dbProjects) => res.json(dbProjects));

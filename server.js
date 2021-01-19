@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const taskRouter = require("./routes/tasks-api-routes");
 const projectRouter = require("./routes/projects-api-routes");
+const peopleRouter = require("./routes/people-api-routes");
 
 // Sets up the Express App
 const app = express();
@@ -20,8 +21,7 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// // Static directory
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 // Import routes and give the server access to them.
 // const routes = require("./routes/api-routes.js");
@@ -31,6 +31,7 @@ app.use(express.json());
 // Invoke Routes
 taskRouter(app);
 projectRouter(app);
+peopleRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync().then(() => {
