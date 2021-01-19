@@ -2,16 +2,6 @@
 var db = require("../models");
 
 
-
-
-
-
-
-
-
-
-
-
 //Routing
 
 app.get('/home', function (req, res) {
