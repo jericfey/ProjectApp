@@ -6,8 +6,8 @@ module.exports = function (app) {
 //Routing
 
 app.get('/', function (req, res) {
-    res.render("people")
-  });
+    //db.People.findAll().then(test => console.log(test));
+    });
 
 app.get('/projects', function (req, res) {
     res.render("projects")
