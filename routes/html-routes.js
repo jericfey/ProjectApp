@@ -7,9 +7,7 @@ module.exports = function (app) {
 
 app.get('/', function (req, res) {
     //db.People.findAll().then(test => console.log(test));
-
-    res.render("people")
-  });
+    });
 
 app.get('/projects', function (req, res) {
     res.render("projects")
