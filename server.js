@@ -19,7 +19,7 @@ app.set("view engine", "handlebars");
 
 //images stored:
 
-app.use(express.static("views/images"));
+// app.use(express.static("views/images"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
