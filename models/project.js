@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
     });
-  };
-  //! sets project as foreignK in Task
-  Project.associate = (models) => {
     Project.hasMany(models.Task, {
       onDelete: "cascade",
     });
@@ -21,5 +18,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return Project;
 };
-
-

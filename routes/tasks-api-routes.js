@@ -8,6 +8,7 @@ module.exports = (app) => {
     db.Task.findAll({
       include: [db.Project, db.State, db.People],
     }).then((dbTasks) => res.json(dbTasks));
+    res.render("tasks", dbTasks);
   });
 
   app.get("/api/tasks/:id", (req, res) => {

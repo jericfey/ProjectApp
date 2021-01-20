@@ -4,8 +4,11 @@ module.exports = (app) => {
   //Pull all people
   app.get("/api/people", (req, res) => {
     db.People.findAll({
-      include: [{ all: true, nested: true }],
-    }).then((dbPeople) => res.json(dbPeople));
+      include: [db.Role],
+    }).then((dbPeople) => {
+      res.json(dbPeople);
+      res.render("people", dbPeople);
+    });
   });
 
   //Pull by People id
