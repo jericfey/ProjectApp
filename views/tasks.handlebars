@@ -76,12 +76,12 @@
             <div id="backlog-card" class="card-panel blue darken-2 col s3">
                 <span class="white-text">
                     <p><strong>Backlog</strong></p>
-                    <p>{{user)}</p>
-                    <p>{{description)}</p>
-                    <p>{{billable)}</p>
-                    <p>{{hours)}</p>
-                    <p>{{cost)}</p>
-                    <p>{{revenue)}</p>
+                    <p>{{#each user}}{{user)}{{/each}}</p>
+                    <p>{{#each description}}{{description)}{{/each}}</p>
+                    <p>{{#each billable}}{{billable)}{{/each}}</p>
+                    <p>{{#each hours}}{{hours)}{{/each}}</p>
+                    <p>{{#each cost}}{{cost)}{{/each}}</p>
+                    <p>{{#each revenue}}{{revenue)}{{/each}}</p>
                 </span>
             </div>
             {{/each}}
@@ -90,39 +90,39 @@
             <div id= "In-Progress-Card" class="card-panel amber lighten-1 col s3">
                 <span class="white-text">
                     <p><strong>In-Progress</strong></p>
-                    <p>{{user)}</p>
-                    <p>{{billable)}</p>
-                    <p>{{hours)}</p>
-                    <p>{{cost)}</p>
-                    <p>{{revenue)}</p>
+                    <p>{{#each user}}{{user)}{{/each}}</p>
+                    <p>{{#each description}}{{description)}{{/each}}</p>
+                    <p>{{#each billable}}{{billable)}{{/each}}</p>
+                    <p>{{#each hours}}{{hours)}{{/each}}</p>
+                    <p>{{#each cost}}{{cost)}{{/each}}</p>
+                    <p>{{#each revenue}}{{revenue)}{{/each}}</p>
                 </span>
             </div>
             {{/each}}
 
-            {{#each blocked}}
             <div id= "Blocked-Card" class="card-panel red darken-3 col s3">
                 <span class="white-text">
                   <p><strong>Blocked</strong></p>
-                  <p>{{user)}</p>
-                  <p>{{billable)}</p>
-                  <p>{{hours)}</p>
-                  <p>{{cost)}</p>
-                  <p>{{revenue)}</p>
+                    <p>{{#each user}}{{user)}{{/each}}</p>
+                    <p>{{#each description}}{{description)}{{/each}}</p>
+                    <p>{{#each billable}}{{billable)}{{/each}}</p>
+                    <p>{{#each hours}}{{hours)}{{/each}}</p>
+                    <p>{{#each cost}}{{cost)}{{/each}}</p>
+                    <p>{{#each revenue}}{{revenue)}{{/each}}</p>
                 </span>
             </div>
-            {{/each}}
 
-            {{#each completed}}
+            
             <div id="Completed-Card "class="card-panel green darken-2 col s3">
                 <span class="white-text">
                   <p><strong>Completed</strong></p>
-                  <p>{{user)}</p>
-                  <p>{{billable)}</p>
-                  <p>{{hours)}</p>
-                  <p>{{cost)}</p>
-                  <p>{{revenue)}</p>
+                    <p>{{#each user}}{{user)}{{/each}}</p>
+                    <p>{{#each description}}{{description)}{{/each}}</p>
+                    <p>{{#each billable}}{{billable)}{{/each}}</p>
+                    <p>{{#each hours}}{{hours)}{{/each}}</p>
+                    <p>{{#each cost}}{{cost)}{{/each}}</p>
+                    <p>{{#each revenue}}{{revenue)}{{/each}}</p>
                 </span>
             </div>
-            {{/each}}
     </div>
 </div>
