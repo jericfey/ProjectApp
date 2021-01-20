@@ -25,6 +25,16 @@ module.exports = function (app) {
   });
 
   app.get("/tasks", function (req, res) {
-    res.render("tasks");
+    db.Task.findAll({
+      include: [db.Project, db.State, db.People],
+    })
+      // .then((dbTasks) => res.json(dbTasks))
+      .then((dbTasks) => {
+        res.render("tasks", { Tasks: dbTasks });
+        // let jsonTasks = JSON.parse(dbTasks);
+        console.log(dbTasks[0]);
+      });
+
+    // res.render("tasks");
   });
 };
