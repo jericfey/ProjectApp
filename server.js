@@ -14,8 +14,12 @@ const db = require("./models");
 
 const exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+//images stored:
+
+app.use(express.static("views/images"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +41,6 @@ peopleRouter(app);
 const htmlRoutes = require("./routes/html-routes.js");
 
 htmlRoutes(app);
-
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync().then(() => {

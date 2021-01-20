@@ -77,7 +77,7 @@
       <span class="white-text">
         <p><strong>Backlog</strong></p>
         <p>{{dataValues.name}}</p>
-        <p>{{dataValues.description}}</p>
+        <p>{{dataValues.Person.dataValues.full_name}}</p>
         <p>{{dataValues.billable}}</p>
         <p>{{dataValues.hours}}</p>
         <p>{{dataValues.cost}}</p>
@@ -103,6 +103,7 @@
     <div id="Blocked-Card" class="card-panel red darken-3 col s3">
       <span class="white-text">
         <p><strong>Blocked</strong></p>
+
         <p>{{dataValues.name}}</p>
         <p>{{dataValues.billable}}</p>
         <p>{{dataValues.hours}}</p>
@@ -116,11 +117,13 @@
     <div id="Completed-Card " class="card-panel green darken-2 col s3">
       <span class="white-text">
         <p><strong>Completed</strong></p>
+
         <p>{{dataValues.name}}</p>
         <p>{{dataValues.billable}}</p>
         <p>{{dataValues.hours}}</p>
         <p>{{dataValues.cost}}</p>
         <p>{{dataValues.revenue}}</p>
+
       </span>
     </div>
     {{/each}}
