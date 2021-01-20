@@ -15,6 +15,7 @@
     <div class="section">
         <div class="row">
 
+            {{#each Projects}}
             <div class="col s4">
 
                 <div class="card small">
@@ -23,7 +24,8 @@
 
                     </div>
                     <div class="card-content">
-                        <p>Destroy the DeathStar</p>
+                        <p>{{dataValues.name}}</p>
+                        <p>{{dataValues.department}}</p>
                     </div>
                     <div class="card-action ">
                         <a href="../views/tasks.handlebars" class="teal-text">View Tasks</a>
@@ -31,6 +33,7 @@
                 </div>
 
             </div>
+            {{/each}}
             <div class="col s4">
 
                 <div class="card small">
