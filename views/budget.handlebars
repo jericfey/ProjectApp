@@ -1,40 +1,40 @@
-    <div class="row valign-wrapper">
+<div class="row valign-wrapper">
 
-        <div class="col s3" style="margin-left: 20px; margin-right: 20px; margin-top: 60px"> 
-            <span class="teal-text text-teal lighten-2">Select Project</span>
+  <div class="col s3" style="margin-left: 20px; margin-right: 20px; margin-top: 60px">
+    <span class="teal-text text-teal lighten-2">Select Project</span>
 
-                <div class="input-field">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Project</label>
-                </div>
-        </div>
-        <div class="col s9" style="margin-top: 60px; margin-right: 20px"> 
-                
-                <table class="striped">
-                    <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Title</th>
-                          <th>Company</th>
-                          <th>Email</th>
-                          <th>Rate</th>
-                          <th>Hours</th>
-                      </tr>
-                    </thead>
-            
-                    <tbody>
-                        {{#each people}}
-                      <tr>
-                        <td>{{firstname}}</td>
-                        <td>{{lastname}}</td>
-                        <td>{{title}}</td>
-                        <td>{{company}}</td>
-                        <td>{{email}}</td>
-                        <td>{{rate}}</td>
-                        <td>{{hours}}</td>
-                      </tr>
-                      {{/each}}
-                    </tbody>
-                  </table>
-        </div>
+    <div class="input-field">
+      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <label for="textarea1">Project</label>
     </div>
+  </div>
+  <div class="col s9" style="margin-top: 60px; margin-right: 20px">
+
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Email</th>
+          <th>Rate</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each people}}
+        <tr>
+          <td>{{dataValues.firstname}}</td>
+          <td>{{dataValues.lastname}}</td>
+          <td>{{dataValues.title}}</td>
+          <td>{{dataValues.company}}</td>
+          <td>{{dataValues.email}}</td>
+          <td>{{dataValues.rate}}</td>
+          <td>{{dataValues.hours}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
