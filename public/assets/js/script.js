@@ -9,15 +9,8 @@
 var newUser = $("#new-user-button");
 
 //adding a listener to button to listen to click event
-<<<<<<< HEAD
-newUser.addEventListener('click', (e) => {
-    if (e) {
-      console.log('DOM loaded!');
-    }});
-=======
 newUser.addEventListener("click", (e) => {
   if (e) {
     console.log("DOM loaded!");
   }
 });
->>>>>>> main
