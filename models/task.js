@@ -7,24 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     revenue: { type: DataTypes.DECIMAL(15, 2) },
     billable: { type: DataTypes.BOOLEAN },
   });
-  //! sets state as foreign key
-  Task.associate = (models) => {
-    models.Task.belongsTo(models.State, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
-  //! sets project as foreign key
-  Task.associate = (models) => {
-    models.Task.belongsTo(models.Project, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
   //! sets people as foreign key
   Task.associate = (models) => {
     models.Task.belongsTo(models.People, {
@@ -33,7 +15,38 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
     });
+    models.Task.belongsTo(models.State, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+    models.Task.belongsTo(models.Project, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
+
+  // //! sets state as foreign key
+  // Task.associate = (models) => {
+  //   models.Task.belongsTo(models.State, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       allowNull: false,
+  //     },
+  //   });
+  // };
+  // //! sets project as foreign key
+  // Task.associate = (models) => {
+  //   models.Task.belongsTo(models.Project, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       allowNull: false,
+  //     },
+  //   });
+  // };
 
   return Task;
 };

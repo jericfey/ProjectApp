@@ -14,10 +14,10 @@ module.exports = (app) => {
       where: {
         id: req.params.id,
       },
-      include: [db.Post],
+      include: [{ all: true, nested: true }],
     }).then((dbProjects) => res.json(dbProjects));
   });
-  
+
   //create new project
   app.post("/api/projects", (req, res) => {
     db.Project.create(req.body).then((dbProjects) => res.json(dbProjects));

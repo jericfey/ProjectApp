@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define("Project", {
     name: { type: DataTypes.STRING },
   });
-  //! inclused foreign key as DepartmentID for project
+  //! includes foreign key as DepartmentID for project
   Project.associate = (models) => {
     Project.belongsTo(models.Department, {
       onDelete: "CASCADE",

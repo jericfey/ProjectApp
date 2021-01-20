@@ -14,7 +14,7 @@ module.exports = (app) => {
       where: {
         id: req.params.id,
       },
-      include: [db.Post],
+      include: [{ all: true, nested: true }],
     }).then((dbPeople) => res.json(dbPeople));
   });
 
