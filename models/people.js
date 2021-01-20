@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
     });
-  };
-  //! sets people as foreign key in Task
-  People.associate = (models) => {
     People.hasMany(models.Task, {
       onDelete: "cascade",
     });

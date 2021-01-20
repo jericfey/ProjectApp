@@ -29,24 +29,5 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  // //! sets state as foreign key
-  // Task.associate = (models) => {
-  //   models.Task.belongsTo(models.State, {
-  //     onDelete: "CASCADE",
-  //     foreignKey: {
-  //       allowNull: false,
-  //     },
-  //   });
-  // };
-  // //! sets project as foreign key
-  // Task.associate = (models) => {
-  //   models.Task.belongsTo(models.Project, {
-  //     onDelete: "CASCADE",
-  //     foreignKey: {
-  //       allowNull: false,
-  //     },
-  //   });
-  // };
-
   return Task;
 };
