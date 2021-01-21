@@ -1,47 +1,48 @@
 <div class="row valign-wrapper">
 
-        <div class="col s3" style="margin-top: 60px; margin-left: 20px; margin-right: 20px"> <!-- Note that "m4 l3" was added -->
-            <span class="teal-text text-teal lighten-2">New User</span>
+  <div class="col s3" style="margin-top: 60px; margin-left: 20px; margin-right: 20px">
+    <!-- Note that "m4 l3" was added -->
+    <span class="teal-text text-teal lighten-2">New User</span>
 
-                <div class="input-field">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">First Name</label>
-                </div>
-
-                <div class="input-field">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Last Name</label>
-                </div>
-
-                <div class="input-field">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Role</label>
-                </div>
-                <button id="new-user-button" class="btn waves-effect waves-light" type="button" name="action">Submit</button>
-  
-        </div>
-  
-        <div class="col s9" style="margin-right: 20px"> 
-                <!-- Page Content goes here -->
-                <table class="striped">
-                    <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Title</th>
-                          <th>Role</th>
-                      </tr>
-                    </thead>
-            
-                   <tbody>
-                        {{#each people}}
-                      <tr>
-                        <td>{{firstname}}</td>
-                        <td>{{lastname}}</td>
-                        <td>{{role}}</td>
-                      </tr>
-                      {{/each}}
-                    </tbody>
-                  </table>
-        </div>
-
+    <div class="input-field">
+      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <label for="textarea1">First Name</label>
     </div>
+
+    <div class="input-field">
+      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <label for="textarea1">Last Name</label>
+    </div>
+
+    <div class="input-field">
+      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <label for="textarea1">Role</label>
+    </div>
+    <button id="new-user-button" class="btn waves-effect waves-light" type="button" name="action">Submit</button>
+
+  </div>
+
+  <div class="col s9" style="margin-right: 20px">
+    <!-- Page Content goes here -->
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each people}}
+        <tr>
+          <td>{{firstname}}</td>
+          <td>{{lastname}}</td>
+          <td>{{role}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+</div>

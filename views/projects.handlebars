@@ -5,7 +5,7 @@
         <br>
 
         <div class="row center">
-            <a href="http://materializecss.com/getting-started.html" id="download-button"
+            <a href="./tasks.handlebars" id="download-button"
                 class="btn-large waves-effect waves-light teal lighten-2">New Project</a>
         </div>
         <br><br>
@@ -15,6 +15,7 @@
     <div class="section">
         <div class="row">
 
+            {{#each Projects}}
             <div class="col s4">
 
                 <div class="card small">
@@ -23,7 +24,8 @@
 
                     </div>
                     <div class="card-content">
-                        <p>Destroy the DeathStar</p>
+                        <p>{{dataValues.name}}</p>
+                        <p>{{dataValues.department}}</p>
                     </div>
                     <div class="card-action ">
                         <a href="../views/tasks.handlebars" class="teal-text">View Tasks</a>
@@ -31,6 +33,7 @@
                 </div>
 
             </div>
+            {{/each}}
             <div class="col s4">
 
                 <div class="card small">

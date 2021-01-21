@@ -1,92 +1,96 @@
-<div class="row valign-wrapper">
+<div class="row">
 
-  <div class="col s3" style="margin-top: 60px; margin-left: 20px; margin-right: 20px">
+  <div class="col s2" style="margin-top: 60px; margin-left: 20px; margin-right: 20px">
     <span class="teal-text text-teal lighten-2">New Task</span>
-
-    <div class="input-field">
-      <textarea id="textarea1" class="materialize-textarea" id="assigned-to-input"></textarea>
-      <label for="textarea1">Assigned to:</label>
-    </div>
-
-    <div class="input-field">
-      <textarea id="textarea1" class="materialize-textarea" id="description-input"></textarea>
-      <label for="textarea1">Description:</label>
-    </div>
-
-    <form action="Submit">
-      <p>
-        <label>
-          <input name="group1" type="radio" checked id="billable-radio" />
-          <span>Billable</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input name="group1" type="radio" id="non-billable-radio" />
-          <span>Non-Billable</span>
-        </label>
-      </p>
-
+    <form id = "createTask">
       <div class="input-field">
-        <textarea id="textarea1" class="materialize-textarea" id="hours-input"></textarea>
-        <label for="textarea1">Hours:</label>
+        <textarea id="textarea1" class="materialize-textarea" id="person"></textarea>
+        <label for="textarea1">Assigned to:</label>
       </div>
 
       <div class="input-field">
-        <textarea id="textarea1" class="materialize-textarea" id="cost-input"></textarea>
-        <label for="textarea1">Cost:</label>
+        <textarea id="textarea1" class="materialize-textarea" id="description-input"></textarea>
+        <label for="textarea1">Description:</label>
       </div>
 
-      <div class="input-field">
-        <textarea id="textarea1" class="materialize-textarea" id="revenue-input"></textarea>
-        <label for="textarea1">Revenue:</label>
-      </div>
 
-      <form action="Submit">
         <p>
           <label>
-            <input name="group1" type="radio" checked id="backlog-radio" />
-            <span>Backlog</span>
+            <input name="group1" type="radio" checked id="billable-radio" />
+            <span>Billable</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="group1" type="radio" id="in-progress-radio" />
-            <span>In-Progress</span>
+            <input name="group1" type="radio" id="non-billable-radio" />
+            <span>Non-Billable</span>
           </label>
         </p>
-        <p>
-          <label>
-            <input name="group1" type="radio" id="blocked-radio" />
-            <span>Blocked</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="group1" type="radio" id="completed-radio" />
-            <span>Completed</span>
-          </label>
-        </p>
-      </form>
-      <a class="waves-effect waves-light btn-small" style="margin-top: 10px">Submit</a>
+
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea" id="hours-input"></textarea>
+          <label for="textarea1">Hours:</label>
+        </div>
+
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea" id="cost-input"></textarea>
+          <label for="textarea1">Cost:</label>
+        </div>
+
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea" id="revenue-input"></textarea>
+          <label for="textarea1">Revenue:</label>
+        </div>
+
+    
+          <p>
+            <label>
+              <input name="group1" type="radio" checked id="backlog-radio" />
+              <span>Backlog</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" id="in-progress-radio" />
+              <span>In-Progress</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" id="blocked-radio" />
+              <span>Blocked</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" id="completed-radio" />
+              <span>Completed</span>
+            </label>
+          </p>
+
+        <a class="waves-effect waves-light btn-small" action="submit" style="margin-top: 10px">Submit</a>
+    </form>
   </div>
 
-  <div class="col s9" style="margin-right: 20px">
+  <div class="container" style="margin-right: 20px">
+    
     {{#each Tasks}}
-    <div id="backlog-card" class="card-panel blue darken-2 col s3">
-      <span class="white-text">
-        <p><strong>Backlog</strong></p>
-        <p>{{dataValues.name}}</p>
-        <p>{{dataValues.description}}</p>
-        <p>{{dataValues.billable}}</p>
-        <p>{{dataValues.hours}}</p>
-        <p>{{dataValues.cost}}</p>
-        <p>{{dataValues.revenue}}</p>
-      </span>
-    </div>
-    {{/each}}
 
-    {{#each in-progress}}
+    <div class="col s2" style="margin-right: 20px">
+    <div id="backlog-card" class="card blue lighten-5">
+      <span class="card-title">{{dataValues.name}}</span>
+        <p style="padding: .2em;">Project: {{dataValues.Project.dataValues.name}}</p>
+        <p style="padding: .2em;">State: {{dataValues.State.dataValues.name}}</p>
+        <p style="padding: .2em;">Assigned To: {{dataValues.Person.dataValues.full_name}}</p>
+        <p style="padding: .2em;">Hours Assigned: {{dataValues.hours}}</p>
+        <p style="padding: .2em;">Task Cost: ${{dataValues.cost}}</p>
+        <p style="padding: .2em;">Task Revenue: ${{dataValues.revenue}}</p>  
+    </div>
+    </div>
+
+    {{/each}}
+  </div>
+    {{!-- {{#each in-progress}}
     <div id="In-Progress-Card" class="card-panel amber lighten-1 col s3">
       <span class="white-text">
         <p><strong>In-Progress</strong></p>
@@ -103,11 +107,12 @@
     <div id="Blocked-Card" class="card-panel red darken-3 col s3">
       <span class="white-text">
         <p><strong>Blocked</strong></p>
-        <p>{{.name}}</p>
-        <p>{{.billable}}</p>
-        <p>{{.hours}}</p>
-        <p>{{.cost}}</p>
-        <p>{{.revenue}}</p>
+
+        <p>{{dataValues.name}}</p>
+        <p>{{dataValues.billable}}</p>
+        <p>{{dataValues.hours}}</p>
+        <p>{{dataValues.cost}}</p>
+        <p>{{dataValues.revenue}}</p>
       </span>
     </div>
     {{/each}}
@@ -116,13 +121,15 @@
     <div id="Completed-Card " class="card-panel green darken-2 col s3">
       <span class="white-text">
         <p><strong>Completed</strong></p>
-        <p>{{.name}}</p>
-        <p>{{.billable}}</p>
-        <p>{{.hours}}</p>
-        <p>{{.cost}}</p>
-        <p>{{.revenue}}</p>
+
+        <p>{{dataValues.name}}</p>
+        <p>{{dataValues.billable}}</p>
+        <p>{{dataValues.hours}}</p>
+        <p>{{dataValues.cost}}</p>
+        <p>{{dataValues.revenue}}</p>
+
       </span>
     </div>
-    {{/each}}
-  </div>
+    {{/each}} --}}
+
 </div>
