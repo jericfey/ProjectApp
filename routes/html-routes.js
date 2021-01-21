@@ -33,7 +33,15 @@ module.exports = function (app) {
   });
 
   app.get("/people", function (req, res) {
-    res.render("people");
+    db.People.findAll({
+      include: [{ all: true }],
+    })
+      // .then((dbTasks) => res.json(dbTasks))
+      .then((dbPeople) => {
+        res.render("people", { People: dbPeople });
+        // let jsonTasks = JSON.parse(dbTasks);
+        console.log(dbPeople[0].Role);
+      });
   });
 
   app.get("/tasks", function (req, res) {
