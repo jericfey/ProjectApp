@@ -3,15 +3,52 @@
   <div class="col s2" style="margin-top: 60px; margin-left: 20px; margin-right: 20px">
     <span class="teal-text text-teal lighten-2">New Task</span>
     <form id = "createTask">
+      <div class = "row">
       <div class="input-field">
-        <textarea id="textarea1" class="materialize-textarea" id="person"></textarea>
-        <label for="textarea1">Assigned to:</label>
-      </div>
-
-      <div class="input-field">
-        <textarea id="textarea1" class="materialize-textarea" id="description-input"></textarea>
+        <textarea id="taskName" class="materialize-textarea" id="description-input"></textarea>
         <label for="textarea1">Description:</label>
       </div>
+      </div>
+      <div class = "row">
+      <div class="input-field">
+        <select>
+          <option value="" disabled selected>Assign a person</option>
+          {{#each People}}
+          <option value="{{dataValues.full_name}}" id="{{dataValues.id}}">{{dataValues.full_name}}</option>
+          {{/each}}
+        </select>
+        <label>Assign To:</label>
+      </div>
+      </div>
+      <div class = "row">
+        <div class="input-field">
+        <select>
+          <option value="" disabled selected>Task state</option>
+          <option value="Backlog" id="backlog">Backlog</option>
+          <option value="In Progress" id="in progress">In Progress</option>
+          <option value="Blocked" id="blocked">Blocked</option>
+          <option value="Completed" id="completed">Completed</option>
+        </select>
+        <label>Pick task status:</label>
+      </div>
+      </div>
+      <div class = "row">
+      <div class="input-field">
+        <textarea id="hours" class="materialize-textarea" id="description-input"></textarea>
+        <label for="textarea1">Number of Hours</label>
+      </div>
+      </div>
+      <div class = "row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+
+
+    
+      
+
+{{!--       
 
 
         <p>
@@ -66,21 +103,21 @@
               <input name="group1" type="radio" id="completed-radio" />
               <span>Completed</span>
             </label>
-          </p>
-
+          </p> --}}
+        {{!-- <div class = "row">
         <a class="waves-effect waves-light btn-small" action="submit" style="margin-top: 10px">Submit</a>
+        </div> --}}
     </form>
   </div>
 
   <div class="container" style="margin-right: 20px">
     
     {{#each Tasks}}
-
     <div class="col s2" style="margin-right: 20px">
+      <h5>{{dataValues.State.dataValues.name}}</h5>
     <div id="backlog-card" class="card blue lighten-5">
       <span class="card-title">{{dataValues.name}}</span>
         <p style="padding: .2em;">Project: {{dataValues.Project.dataValues.name}}</p>
-        <p style="padding: .2em;">State: {{dataValues.State.dataValues.name}}</p>
         <p style="padding: .2em;">Assigned To: {{dataValues.Person.dataValues.full_name}}</p>
         <p style="padding: .2em;">Hours Assigned: {{dataValues.hours}}</p>
         <p style="padding: .2em;">Task Cost: ${{dataValues.cost}}</p>
@@ -133,3 +170,12 @@
     {{/each}} --}}
 
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+});
+</script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/public/assets/js/script.js"></script>
