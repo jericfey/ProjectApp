@@ -16,16 +16,32 @@ module.exports = function (app) {
     res.render("home");
   });
 
-  app.get("/projects/", function (req, res) {
-    db.Project.findAll({
-      // include: [db.Project, db.State, db.People],
-    })
-      // .then((dbTasks) => res.json(dbTasks))
-      .then((dbProjects) => {
-        res.render("projects", { Projects: dbProjects });
-        // let jsonTasks = JSON.parse(dbTasks);
-        console.log(dbProjects[0]);
-      });
+  // app.get("/projects/", function (req, res) {
+  //   db.Project.findAll({
+  //     // include: [{ all: true, nested: true }],
+  //   })
+  //     // .then((dbTasks) => res.json(dbTasks))
+  //     .then((dbProjects) => {
+  //       res.render("projects", { Projects: dbProjects });
+  //       // let jsonTasks = JSON.parse(dbTasks);
+  //       console.log(dbProjects[0]);
+  //     });
+  // });
+  app.get("/projects", function (req, res) {
+    const projectGet = db.Project.findAll({
+      include: [{ all: true, nested: true }],
+    });
+    const departmentGet = db.Department.findAll({
+      include: [{ all: true, nested: true }],
+    });
+    Promise.all([projectGet, departmentGet]).then((dbAll) => {
+      // console.log(dbTasks);
+      const projects = dbAll[0];
+      const department = dbAll[1];
+      console.log(projects);
+      console.log(department);
+      res.render("projects", { Projects: projects, Department: department });
+    });
   });
 
   app.get("/budget", function (req, res) {

@@ -47,6 +47,7 @@ db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
 
+//Syncing but rebuilds the database
 // db.sequelize.sync({ force: true }).then(function () {
 //   app.listen(PORT, function () {
 //     console.log("App listening on PORT " + PORT);
