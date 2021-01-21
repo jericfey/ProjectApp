@@ -8,6 +8,10 @@ module.exports = function (app) {
     res.render("home");
   });
 
+  app.get("/projectadd", function (req, res) {
+    res.render("formproject");
+  });
+
   app.get("/home", function (req, res) {
     res.render("home");
   });
