@@ -34,11 +34,11 @@
       </thead>
 
       <tbody>
-        {{#each people}}
+        {{#each People}}
         <tr>
-          <td>{{firstname}}</td>
-          <td>{{lastname}}</td>
-          <td>{{role}}</td>
+          <td>{{dataValues.first_name}}</td>
+          <td>{{dataValues.last_name}}</td>
+          <td>{{dataValues.Role.dataValues.name}}</td>
         </tr>
         {{/each}}
       </tbody>
