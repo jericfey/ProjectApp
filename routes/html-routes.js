@@ -16,7 +16,7 @@ module.exports = function (app) {
     res.render("home");
   });
 
-  app.get("/projects", function (req, res) {
+  app.get("/projects/", function (req, res) {
     db.Project.findAll({
       // include: [db.Project, db.State, db.People],
     })
@@ -37,12 +37,24 @@ module.exports = function (app) {
   });
 
   app.get("/tasks", function (req, res) {
-    db.Task.findAll(
-      { include: [{ all: true, nested: true }] },
-      { group: [db.State.id] }
-    ).then((dbTasks) => {
-      res.render("tasks", { Tasks: dbTasks });
-      console.log(dbTasks);
+    const taskGet = db.Task.findAll({ include: [{ all: true, nested: true }] });
+    const peopleGet = db.People.findAll({
+      include: [{ all: true, nested: true }],
     });
+    Promise.all([taskGet, peopleGet]).then((dbAll) => {
+      // console.log(dbTasks);
+      const tasks = dbAll[0];
+      const people = dbAll[1];
+      console.log(tasks);
+      console.log(people);
+      res.render("tasks", { Tasks: tasks, People: people });
+    });
+    // db.Task.findAll(
+    //   { include: [{ all: true, nested: true }] },
+    //   { group: [db.State.id] }
+    // ).then((dbTasks) => {
+    //   res.render("tasks", { Tasks: dbTasks });
+    //   console.log(dbTasks);
+    // });
   });
 };
