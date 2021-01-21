@@ -6,11 +6,12 @@
 //Need to create new projects button and new team member button on homepage
 
 //selecting button element with id #new-user-button and saving a variable newUser
-var newUser = $("#new-user-button");
+
+var newUser = document.getElementById("new-user-button");
 
 //adding a listener to button to listen to click event
-newUser.addEventListener("click", (e) => {
-  if (e) {
-    console.log("DOM loaded!");
-  }
-});
+newUser.addEventListener("click", myfunction);
+
+function myfunction() {
+  console.log("DOM Loaded!");
+}

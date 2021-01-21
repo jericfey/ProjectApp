@@ -19,13 +19,13 @@ app.set("view engine", "handlebars");
 
 //images stored:
 
-// app.use(express.static("views/images"));
+app.use(express.static(__dirname + "/views/images"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/"));
 
 // Import routes and give the server access to them.
 // const routes = require("./routes/api-routes.js");
