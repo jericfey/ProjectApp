@@ -9,7 +9,7 @@ module.exports = (app) => {
     res.render("projects", dbProjects);
   });
 
-  //Pull by project id
+  //Pull by project id 
   app.get("/api/projects/:id", (req, res) => {
     db.Project.findOne({
       where: {
